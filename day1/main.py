@@ -12,10 +12,7 @@ def reader(path: str | pathlib.Path) -> tuple[str, ...]:
 def remove_alphas(data: typing.Iterable[str]) -> tuple[str, ...]:
     new_data = []
     for item in list(data):
-        srg_ = ""
-        for letter in item:
-            if letter.isdigit():
-                srg_ += letter
+        srg_ = "".join(letter for letter in item if letter.isdigit())
         new_data.append(srg_)
     return tuple(new_data)
 
